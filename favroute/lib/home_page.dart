@@ -63,47 +63,47 @@ class _HomePageState extends State<HomePage> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Column(
-          children: [
-            ListView.builder(
-              shrinkWrap: true,
-              physics: NeverScrollableScrollPhysics(),
-              itemCount: itemsList.length,
-              itemBuilder: (context, index) {
-                return ListTile(
-                  onTap: () {
-                    bookmarkBloc.addCount();
-                    // print(bookmarkBloc.count);
-
-                    ItemModel itemModel = ItemModel(
-                      title: itemsList[index]['title'],
-                      subTitle: itemsList[index]['subtitle'],
-                    );
-
-                    bookmarkBloc.addItems(itemModel);
-
-                    print(bookmarkBloc.items[index].title);
-                    print(bookmarkBloc.items.length);
-
-                    setState(() {
-                      itemsList[index]['status'] = "true";
-                    });
-                  },
-                  title: Text(itemsList[index]['title']),
-                  subtitle: Text(itemsList[index]['subtitle']),
-                  trailing: itemsList[index]['status'] == "false"
-                      ? Icon(Icons.star_border)
-                      : Icon(
-                          Icons.star,
-                          color: Colors.blue,
-                        ),
-                );
-              },
-            ),
-          ],
-        ),
-      ),
+      // body: SingleChildScrollView(
+      //   child: Column(
+      //     children: [
+      //       ListView.builder(
+      //         shrinkWrap: true,
+      //         physics: NeverScrollableScrollPhysics(),
+      //         itemCount: itemsList.length,
+      //         itemBuilder: (context, index) {
+      //           return ListTile(
+      //             onTap: () {
+      //               bookmarkBloc.addCount();
+      //               // print(bookmarkBloc.count);
+      //
+      //               ItemModel itemModel = ItemModel(
+      //                 title: itemsList[index]['title'],
+      //                 subTitle: itemsList[index]['subtitle'],
+      //               );
+      //
+      //               bookmarkBloc.addItems(itemModel);
+      //
+      //               print(bookmarkBloc.items[index].title);
+      //               print(bookmarkBloc.items.length);
+      //
+      //               setState(() {
+      //                 itemsList[index]['status'] = "true";
+      //               });
+      //             },
+      //             title: Text(itemsList[index]['title']),
+      //             subtitle: Text(itemsList[index]['subtitle']),
+      //             trailing: itemsList[index]['status'] == "false"
+      //                 ? Icon(Icons.star_border)
+      //                 : Icon(
+      //                     Icons.star,
+      //                     color: Colors.blue,
+      //                   ),
+      //           );
+      //         },
+      //       ),
+      //     ],
+      //   ),
+      // ),
     );
   }
 }
